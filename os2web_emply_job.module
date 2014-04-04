@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * Code for the os2web_emply_job feature.
+ */
+
+include_once 'os2web_emply_job.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function os2web_emply_job_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'feeds_tamper' && $plugin_type == 'plugins') {
+    return 'plugins';
+  }
+}
