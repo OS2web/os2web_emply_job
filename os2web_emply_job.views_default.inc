@@ -15,7 +15,7 @@ function os2web_emply_job_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Emply Job List';
+  $view->human_name = 'OS2Web Emply: Job List';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -23,7 +23,6 @@ function os2web_emply_job_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Vacancies';
-  $handler->display->display_options['css_class'] = 'job-list';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -107,8 +106,6 @@ function os2web_emply_job_views_default_views() {
   $handler->display->display_options['filters']['field_emply_application_due_value']['table'] = 'field_data_field_emply_application_due';
   $handler->display->display_options['filters']['field_emply_application_due_value']['field'] = 'field_emply_application_due_value';
   $handler->display->display_options['filters']['field_emply_application_due_value']['operator'] = '>';
-  $handler->display->display_options['filters']['field_emply_application_due_value']['granularity'] = 'second';
-  $handler->display->display_options['filters']['field_emply_application_due_value']['default_date'] = 'now';
   /* Filter criterion: Content: Position Category (field_emply_position_category) */
   $handler->display->display_options['filters']['field_emply_position_category_tid']['id'] = 'field_emply_position_category_tid';
   $handler->display->display_options['filters']['field_emply_position_category_tid']['table'] = 'field_data_field_emply_position_category';
@@ -145,7 +142,7 @@ function os2web_emply_job_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'OS2web Emply Job RSS feed';
+  $view->human_name = 'OS2Web Emply: Job RSS feed';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

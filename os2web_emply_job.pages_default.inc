@@ -96,11 +96,12 @@ function os2web_emply_job_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Vacancies';
+  $display->uuid = '3822aa31-cdbc-40df-84d5-9d603feeba1b';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-52e9a11e-7483-4dc2-ab51-e92ba3580b2b';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'os2web_emply_job_list-panel_pane_1';
@@ -114,7 +115,7 @@ function os2web_emply_job_default_page_manager_pages() {
       'exposed' => array(
         'field_emply_position_category_tid' => 'All',
       ),
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
@@ -125,8 +126,9 @@ function os2web_emply_job_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->uuid = '52e9a11e-7483-4dc2-ab51-e92ba3580b2b';
+    $display->content['new-52e9a11e-7483-4dc2-ab51-e92ba3580b2b'] = $pane;
+    $display->panels['middle'][0] = 'new-52e9a11e-7483-4dc2-ab51-e92ba3580b2b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

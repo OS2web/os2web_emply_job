@@ -191,6 +191,7 @@ function os2web_emply_job_field_default_field_instances() {
   // Exported field_instance: 'node-os2web_emply_job-field_emply_application_due'
   $field_instances['node-os2web_emply_job-field_emply_application_due'] = array(
     'bundle' => 'os2web_emply_job',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -243,7 +244,7 @@ function os2web_emply_job_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
+      'type' => 'date_select',
       'weight' => -2,
     ),
   );

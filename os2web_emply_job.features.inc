@@ -35,7 +35,7 @@ function os2web_emply_job_views_api($module = NULL, $api = NULL) {
 function os2web_emply_job_node_info() {
   $items = array(
     'os2web_emply_job' => array(
-      'name' => t('OS2web Emply Job'),
+      'name' => t('OS2Web Emply Job'),
       'base' => 'node_content',
       'description' => t('Content type storing open positions imported from Emply.'),
       'has_title' => '1',

@@ -15,7 +15,7 @@ function os2web_emply_job_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'os2web_emply_job';
   $feeds_importer->config = array(
-    'name' => 'OS2web Emply Job',
+    'name' => 'OS2Web Emply Job',
     'description' => '',
     'fetcher' => array(
       'plugin_key' => 'FeedsHTTPFetcher',
@@ -123,7 +123,6 @@ function os2web_emply_job_feeds_importer_default() {
         'input_format' => 'emply_job_html',
         'skip_hash_check' => 0,
         'bundle' => 'os2web_emply_job',
-        'update_non_existent' => 'delete',
       ),
     ),
     'content_type' => '',
