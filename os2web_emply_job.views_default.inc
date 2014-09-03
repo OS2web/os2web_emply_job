@@ -45,20 +45,21 @@ function os2web_emply_job_views_default_views() {
   $handler->display->display_options['style_options']['default'] = 'title';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_application_due' => array(
-      'sortable' => 1,
+    'field_emply_application_due' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['override'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -87,6 +88,10 @@ function os2web_emply_job_views_default_views() {
     'multiple_to' => '',
   );
   $handler->display->display_options['fields']['field_emply_application_due']['field_api_classes'] = TRUE;
+  /* Sort criterion: Content: Application Due (field_emply_application_due) */
+  $handler->display->display_options['sorts']['field_emply_application_due_value']['id'] = 'field_emply_application_due_value';
+  $handler->display->display_options['sorts']['field_emply_application_due_value']['table'] = 'field_data_field_emply_application_due';
+  $handler->display->display_options['sorts']['field_emply_application_due_value']['field'] = 'field_emply_application_due_value';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -105,7 +110,13 @@ function os2web_emply_job_views_default_views() {
   $handler->display->display_options['filters']['field_emply_application_due_value']['id'] = 'field_emply_application_due_value';
   $handler->display->display_options['filters']['field_emply_application_due_value']['table'] = 'field_data_field_emply_application_due';
   $handler->display->display_options['filters']['field_emply_application_due_value']['field'] = 'field_emply_application_due_value';
-  $handler->display->display_options['filters']['field_emply_application_due_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['expose']['operator_id'] = 'field_emply_application_due_value_op';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['expose']['label'] = 'Application Due (field_emply_application_due)';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['expose']['operator'] = 'field_emply_application_due_value_op';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['expose']['identifier'] = 'field_emply_application_due_value';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_emply_application_due_value']['default_date'] = 'now';
   /* Filter criterion: Content: Position Category (field_emply_position_category) */
   $handler->display->display_options['filters']['field_emply_position_category_tid']['id'] = 'field_emply_position_category_tid';
   $handler->display->display_options['filters']['field_emply_position_category_tid']['table'] = 'field_data_field_emply_position_category';
