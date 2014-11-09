@@ -8,7 +8,7 @@
 $plugin = array(
   'form' => 'os2web_emply_job_get_emply_domain_form',
   'callback' => 'os2web_emply_job_get_emply_domain_callback',
-  'name' => 'Get and return Emply domain',
+  'name' => 'Get Emply domain',
   'multi' => 'loop',
   'category' => 'OS2Web Emply Job',
 );

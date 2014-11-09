@@ -22,7 +22,7 @@ function os2web_emply_job_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -58,7 +58,7 @@ function os2web_emply_job_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => -4,
+      'weight' => 1,
     ),
   );
 
@@ -73,7 +73,7 @@ function os2web_emply_job_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -121,7 +121,7 @@ function os2web_emply_job_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => -1,
+      'weight' => 4,
     ),
   );
 
@@ -136,7 +136,7 @@ function os2web_emply_job_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -184,13 +184,14 @@ function os2web_emply_job_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 42,
+      'weight' => 9,
     ),
   );
 
   // Exported field_instance: 'node-os2web_emply_job-field_emply_application_due'
   $field_instances['node-os2web_emply_job-field_emply_application_due'] = array(
     'bundle' => 'os2web_emply_job',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -243,8 +244,8 @@ function os2web_emply_job_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
-      'weight' => -2,
+      'type' => 'date_select',
+      'weight' => 3,
     ),
   );
 
@@ -260,7 +261,7 @@ function os2web_emply_job_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -308,7 +309,7 @@ function os2web_emply_job_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 0,
+      'weight' => 5,
     ),
   );
 
@@ -327,7 +328,7 @@ function os2web_emply_job_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -357,7 +358,53 @@ function os2web_emply_job_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_onoff',
-      'weight' => 41,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-os2web_emply_job-field_emply_facts'
+  $field_instances['node-os2web_emply_job-field_emply_facts'] = array(
+    'bundle' => 'os2web_emply_job',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_emply_facts',
+    'label' => 'Facts',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 7,
     ),
   );
 
@@ -372,7 +419,7 @@ function os2web_emply_job_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -403,7 +450,7 @@ function os2web_emply_job_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => -3,
+      'weight' => 2,
     ),
   );
 
@@ -418,7 +465,7 @@ function os2web_emply_job_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 4,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -446,7 +493,7 @@ function os2web_emply_job_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 6,
     ),
   );
 
@@ -458,6 +505,7 @@ function os2web_emply_job_field_default_field_instances() {
   t('Application Form Url');
   t('Body');
   t('Disable the apply button');
+  t('Facts');
   t('ID');
   t('Position Category');
 

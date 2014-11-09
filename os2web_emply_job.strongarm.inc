@@ -90,7 +90,7 @@ function os2web_emply_job_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
       ),
       'display' => array(
@@ -150,6 +150,13 @@ function os2web_emply_job_strongarm() {
   $strongarm->name = 'node_submitted_os2web_emply_job';
   $strongarm->value = 0;
   $export['node_submitted_os2web_emply_job'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'os2web_emply_job_position_category_guid';
+  $strongarm->value = '180e3243-fd8d-41e4-b47d-28ee0dd1f54d';
+  $export['os2web_emply_job_position_category_guid'] = $strongarm;
 
   return $export;
 }

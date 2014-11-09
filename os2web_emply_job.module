@@ -14,3 +14,48 @@ function os2web_emply_job_ctools_plugin_directory($owner, $plugin_type) {
     return 'plugins';
   }
 }
+
+/**
+ * Implements hook_menu().
+ */
+function  os2web_emply_job_menu() {
+  $items = array();
+  $items['admin/config/os2web/os2web_emply_jobs'] = array(
+    'title' => 'OS2Web Emply Job',
+    'description' => 'Settings for the OS2Web Emply Job importer.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_emply_job_settings_form'),
+    'access arguments' => array('administer os2web'),
+    'file' => 'os2web_emply_job.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function os2web_emply_job_theme() {
+  return array(
+    'os2web_emply_job_facts' => array(
+      'variables' => array('facts' => NULL),
+    ),
+  );
+}
+
+/**
+ * Return the basic themed job facts.
+ *
+ * @ingroup themeable
+ */
+function theme_os2web_emply_job_facts($variables) {
+  $html = '';
+
+  if (is_array($variables['facts'])) {
+    foreach ($variables['facts'] as $fact) {
+      $html .= "<h3>" . $fact['label'] . '</h3>';
+      $html .= "<p>" . $fact['value'] . '</p>';
+    }
+  }
+
+  return $html;
+}
