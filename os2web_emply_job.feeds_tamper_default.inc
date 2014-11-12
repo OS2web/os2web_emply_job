@@ -87,5 +87,29 @@ function os2web_emply_job_feeds_tamper_default() {
   $feeds_tamper->description = 'Get and return Emply domain';
   $export['os2web_emply_job-xpathparser_5-get_and_return_emply_domain'] = $feeds_tamper;
 
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'os2web_emply_job-xpathparser_7-get_position_category';
+  $feeds_tamper->importer = 'os2web_emply_job';
+  $feeds_tamper->source = 'xpathparser:7';
+  $feeds_tamper->plugin_id = 'get_position_category';
+  $feeds_tamper->settings = '';
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Get position category';
+  $export['os2web_emply_job-xpathparser_7-get_position_category'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'os2web_emply_job-xpathparser_8-get_facts';
+  $feeds_tamper->importer = 'os2web_emply_job';
+  $feeds_tamper->source = 'xpathparser:8';
+  $feeds_tamper->plugin_id = 'get_facts';
+  $feeds_tamper->settings = '';
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Get facts';
+  $export['os2web_emply_job-xpathparser_8-get_facts'] = $feeds_tamper;
+
   return $export;
 }
