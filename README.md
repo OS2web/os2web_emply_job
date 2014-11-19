@@ -8,12 +8,12 @@ OS2Web Emply Job
 
 Description
 -----------
-Content type, Feeds importer, Views and Panel page for displaying vacancies from Emply.net.
+Content type, Feeds importer, Views and Panel page for displaying vacancies from Emply.net. Scheduler module is used automatically to unpublished jobs on application due time. The Feeds expire function is configured automatically to delete job nodes 6 months after first import.
 
 Installation and configuration
 ------------------------------
 This feature should reside in the modules directory of the installation,
-most commonly profiles/profile-name/modules, but alternately in 
+most commonly profiles/profile-name/modules, but alternately in
 sites/all/modules (This could be for development purposes).
 
 After you have enabled the feature, will you need to configure the GUID attribute value for the facts node containing the position

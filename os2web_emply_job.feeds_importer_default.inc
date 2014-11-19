@@ -24,6 +24,8 @@ function os2web_emply_job_feeds_importer_default() {
         'use_pubsubhubbub' => FALSE,
         'designated_hub' => '',
         'request_timeout' => NULL,
+        'auto_scheme' => 'http',
+        'accept_invalid_cert' => FALSE,
       ),
     ),
     'parser' => array(
@@ -37,6 +39,7 @@ function os2web_emply_job_feeds_importer_default() {
           'xpathparser:4' => 'deadline',
           'xpathparser:7' => 'facts',
           'xpathparser:8' => 'facts',
+          'xpathparser:9' => 'deadline',
         ),
         'rawXML' => array(
           'xpathparser:7' => 'xpathparser:7',
@@ -46,6 +49,7 @@ function os2web_emply_job_feeds_importer_default() {
           'xpathparser:2' => 0,
           'xpathparser:3' => 0,
           'xpathparser:4' => 0,
+          'xpathparser:9' => 0,
         ),
         'context' => '//root/vacancy',
         'exp' => array(
@@ -61,6 +65,7 @@ function os2web_emply_job_feeds_importer_default() {
             'xpathparser:4' => 0,
             'xpathparser:7' => 0,
             'xpathparser:8' => 0,
+            'xpathparser:9' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -69,7 +74,7 @@ function os2web_emply_job_feeds_importer_default() {
     'processor' => array(
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
-        'expire' => '-1',
+        'expire' => '15552000',
         'author' => 0,
         'authorize' => 1,
         'mappings' => array(
@@ -120,11 +125,17 @@ function os2web_emply_job_feeds_importer_default() {
             'target' => 'field_emply_facts',
             'unique' => FALSE,
           ),
+          9 => array(
+            'source' => 'xpathparser:9',
+            'target' => 'unpublish_on',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'emply_job_html',
         'skip_hash_check' => 0,
         'bundle' => 'os2web_emply_job',
+        'update_non_existent' => 'skip',
       ),
     ),
     'content_type' => '',
