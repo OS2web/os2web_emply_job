@@ -96,7 +96,7 @@ function os2web_emply_job_feeds_tamper_default() {
   $feeds_tamper->plugin_id = 'get_position_category';
   $feeds_tamper->settings = '';
   $feeds_tamper->weight = 0;
-  $feeds_tamper->description = 'Get and return position category';
+  $feeds_tamper->description = 'Get position category';
   $export['os2web_emply_job-xpathparser_7-get_position_category'] = $feeds_tamper;
 
   $feeds_tamper = new stdClass();
@@ -108,7 +108,7 @@ function os2web_emply_job_feeds_tamper_default() {
   $feeds_tamper->plugin_id = 'get_facts';
   $feeds_tamper->settings = '';
   $feeds_tamper->weight = 0;
-  $feeds_tamper->description = 'Get and return facts';
+  $feeds_tamper->description = 'Get facts';
   $export['os2web_emply_job-xpathparser_8-get_facts'] = $feeds_tamper;
 
   return $export;
