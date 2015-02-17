@@ -93,6 +93,9 @@ function os2web_emply_job_settings_submit($form, &$form_state) {
   drupal_set_message(t('Settings saved successfully!'));
 }
 
+/**
+ * Page callback rendering the feeds log view.
+ */
 function os2web_emply_job_log_view() {
   // Setting page title
   drupal_set_title(t('Log for the Emply job importer'));
