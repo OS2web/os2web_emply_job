@@ -6,6 +6,8 @@
 
 include_once 'os2web_emply_job.features.inc';
 
+define('OS2WEB_EMPLY_JOB_FEEDS_MACHINE_NAME', 'os2web_emply_job');
+
 /**
  * Implements hook_ctools_plugin_directory().
  */
@@ -19,16 +21,48 @@ function os2web_emply_job_ctools_plugin_directory($owner, $plugin_type) {
  * Implements hook_menu().
  */
 function  os2web_emply_job_menu() {
+  $config_path = os2web_emply_job_config_path();
   $items = array();
-  $items['admin/config/os2web/os2web_emply_jobs'] = array(
+  $items[$config_path . '/os2web_emply_jobs'] = array(
     'title' => 'OS2Web Emply Job',
     'description' => 'Settings for the OS2Web Emply Job importer.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('os2web_emply_job_settings_form'),
-    'access arguments' => array('administer os2web'),
+    'access arguments' => array('administer os2web emply job settings'),
     'file' => 'os2web_emply_job.admin.inc',
   );
+  $items[$config_path . '/os2web_emply_jobs/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Settings for the OS2Web Emply Job importer.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_emply_job_settings_form'),
+    'access arguments' => array('administer os2web emply job settings'),
+    'file' => 'os2web_emply_job.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 1,
+  );
+  $items[$config_path . '/os2web_emply_jobs/log'] = array(
+    'title' => 'Import log',
+    'description' => 'Log for the Emply job importer.',
+    'page callback' => 'os2web_emply_job_log_view',
+    'access callback' => 'os2web_emply_job_log_access',
+    'file' => 'os2web_emply_job.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
   return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function os2web_emply_job_permission() {
+  return array(
+    'administer os2web emply job settings' => array(
+      'title' => t('Administer OS2Web Emply Job settings'),
+      'description' => t('Administer settings for the OS2Web Emply Job module.'),
+    ),
+  );
 }
 
 /**
@@ -40,6 +74,18 @@ function os2web_emply_job_theme() {
       'variables' => array('facts' => NULL),
     ),
   );
+}
+
+/**
+ * Menu access callback.
+ *
+ * Checking access to the log tab on the settings page.
+ */
+function os2web_emply_job_log_access() {
+  if (user_access('administer feeds') && user_access("administer os2web emply job settings")) {
+    return TRUE;
+  }
+  return FALSE;
 }
 
 /**
@@ -58,4 +104,52 @@ function theme_os2web_emply_job_facts($variables) {
   }
 
   return $html;
+}
+
+/**
+ * Find and return the existing feeds URL.
+ *
+ * @return string
+ *   The feeds URL.
+ */
+function os2web_emply_job_feeds_url_get() {
+  $feeds_source = feeds_source(OS2WEB_EMPLY_JOB_FEEDS_MACHINE_NAME);
+  $feeds_config = $feeds_source->getConfigFor($feeds_source->importer->fetcher);
+  if (isset($feeds_config['source']) && !empty($feeds_config['source'])) {
+    return $feeds_config['source'];
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Set and save the feeds URL.
+ *
+ * @param string $url
+ *   The feeds URL.
+ *
+ * @return void
+ */
+function os2web_emply_job_feeds_url_set($url) {
+  $feeds_source = feeds_source(OS2WEB_EMPLY_JOB_FEEDS_MACHINE_NAME);
+  $feeds_config = $feeds_source->getConfigFor($feeds_source->importer->fetcher);
+  $feeds_config['source'] = $url;
+  $feeds_source->setConfigFor($feeds_source->importer->fetcher, $feeds_config);
+  $feeds_source->save();
+}
+
+/**
+ * Find the config path.
+ *
+ * @return string
+ *   The config path.
+ */
+function os2web_emply_job_config_path() {
+  if (module_exists('os2web_settings_page')) {
+    return 'admin/os2web_settings/services';
+  }
+  else {
+    return 'admin/config/services';
+  }
 }
